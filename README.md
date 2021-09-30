@@ -7,14 +7,12 @@ A empresa trabalha com aditivos minerais onde depois de cada moagem gera residuo
 
 /*FIM  EMPRESA*/
 
-/*CRIAÇÃO DA BASE DE DADOS(MYSQL)*/ 
+/*CRIAÇÃO DA BASE DE DADOS(MYSQL)*/
 
 Na pasta DB se encontra os arquivos .sql que criaram a tabelas e a database!
 
 login_usuario.sql /*Tabela de logins para acesso*/
 login_bags_refugos.sql/* Local onde se armazenara cada Bag*/
-
-!!! USUARIO JA CRIADO : Nome : Teste Senha: 1234 !!!!
 
 /*FIM*/
 
