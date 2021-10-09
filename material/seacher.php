@@ -19,7 +19,7 @@ session_start();
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">GERENCIADOR DE BAGS</a>
+    <span class="navbar-brand">GERENCIADOR DE BAGS</span>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -52,7 +52,7 @@ session_start();
   </nav>
   <?php
   $material = $_GET['codigo'];
-  $result_bags = "select * from bags_refugos where Material = '" . $material . "';";
+  $result_bags = "select * from bags_refugos where Material like '%" . $material . "%';";
   $resultado_bags = mysqli_query($conexao, $result_bags);
   $numero_linhas = mysqli_num_rows($resultado_bags);
 
@@ -62,7 +62,7 @@ session_start();
       <path d='M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z'/>
     </svg>
     <div>
-     Nenhum bag encontrado de ".$_GET['codigo']."
+     NENHUM BAG DE MATERIAL  ENCONTRADO COM O CODIDO= ' ".$_GET['codigo']."'
     </div>
   </div></div>");
   } else {
@@ -77,6 +77,7 @@ session_start();
           <th scope='col'>Moinho</th>
           <th scope='col'>Peso</th>
           <th scope='col'>Usuario</th>
+          <th scope='col'>Atualizar</th>
           <th scope='col'>Dar Baixa</th>
 
         </tr>
@@ -91,10 +92,12 @@ session_start();
         <td>" . $row_usuario['Moinho'] . "</td>
         <td>" . $row_usuario['Peso'] . "</td>
         <td>" . $row_usuario['usuario'] . "</td>
-        <td><form action='../material/baixa_bag.php' method='post'>
-        <button class='btn btn-danger' type='submit' value='" . $row_usuario['cod'] . "' name='cod'>Deletar</button>
-        </form></td>
-        
+        <td><form action='./material/update_bag.php' method='post'>
+      <button class='btn btn-primary' type='submit' value='" . $row_usuario['cod'] . "' name='cod'>Modificar</button>
+      </form></td>
+      <td><form action='./material/baixa_bag.php' method='post'>
+      <button class='btn btn-danger' type='submit' value='" . $row_usuario['cod'] . "' name='cod'>Deletar</button>
+      </form></td>
       </tr>
       </tbody>
       </table>

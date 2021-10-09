@@ -19,7 +19,7 @@ include('./connect/conexao.php');
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">GERENCIADOR DE BAGS</a>
+    <span class="navbar-brand">GERENCIADOR DE BAGS</span>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -36,7 +36,7 @@ include('./connect/conexao.php');
               </li> -->
             </ul>
           </li>
-
+    
           <li class="nav-item">
             <a class="nav-link" href="./connect/logout.php">Sair</a>
           </li>
@@ -74,6 +74,7 @@ include('./connect/conexao.php');
           <th scope='col'>Moinho</th>
           <th scope='col'>Peso</th>
           <th scope='col'>Usuario</th>
+          <th scope='col'>Atualizar</th>
           <th scope='col'>Dar Baixa</th>
 
         </tr>
@@ -88,6 +89,11 @@ include('./connect/conexao.php');
       <td>" . $row_usuario['Moinho'] . "</td>
       <td>" . $row_usuario['Peso'] . "</td>
       <td>" . $row_usuario['usuario'] . "</td>
+      <td><form action='./material/update_bag.php' method='post'>
+      <button class='btn btn-primary' type='submit' value='" . $row_usuario['cod'] . "' name='cod'>Modificar</button>
+      </form></td>
+
+
       <td><form action='./material/baixa_bag.php' method='post'>
       <button class='btn btn-danger' type='submit' value='" . $row_usuario['cod'] . "' name='cod'>Deletar</button>
       </form></td>
